@@ -15,6 +15,8 @@
 		1A1B4F99298B47EF006377E4 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B4F98298B47EF006377E4 /* Game.swift */; };
 		1A1B4F9B298B47FA006377E4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B4F9A298B47FA006377E4 /* Movie.swift */; };
 		1A1B4F9D298B4AB9006377E4 /* OwnedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B4F9C298B4AB9006377E4 /* OwnedItem.swift */; };
+		1A1B4F9F298B59A4006377E4 /* alex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B4F9E298B59A4006377E4 /* alex.swift */; };
+		1A1B4FA1298B59B0006377E4 /* ameya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B4FA0298B59B0006377E4 /* ameya.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +41,8 @@
 		1A1B4F98298B47EF006377E4 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		1A1B4F9A298B47FA006377E4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		1A1B4F9C298B4AB9006377E4 /* OwnedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedItem.swift; sourceTree = "<group>"; };
+		1A1B4F9E298B59A4006377E4 /* alex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alex.swift; sourceTree = "<group>"; };
+		1A1B4FA0298B59B0006377E4 /* ameya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ameya.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 				1A1B4F9A298B47FA006377E4 /* Movie.swift */,
 				1A1B4F94298B47D7006377E4 /* Customer.swift */,
 				1A1B4F92298B47CB006377E4 /* Store.swift */,
+				1A1B4F9E298B59A4006377E4 /* alex.swift */,
+				1A1B4FA0298B59B0006377E4 /* ameya.swift */,
 			);
 			path = Group9_Store;
 			sourceTree = "<group>";
@@ -141,12 +147,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A1B4F9F298B59A4006377E4 /* alex.swift in Sources */,
 				1A1B4F8F298B4775006377E4 /* IsPurchaseable.swift in Sources */,
 				1A1B4F95298B47D7006377E4 /* Customer.swift in Sources */,
 				1A1B4F99298B47EF006377E4 /* Game.swift in Sources */,
 				1A1B4F91298B47BF006377E4 /* Item.swift in Sources */,
 				1A1B4F88298B46DA006377E4 /* main.swift in Sources */,
 				1A1B4F9B298B47FA006377E4 /* Movie.swift in Sources */,
+				1A1B4FA1298B59B0006377E4 /* ameya.swift in Sources */,
 				1A1B4F9D298B4AB9006377E4 /* OwnedItem.swift in Sources */,
 				1A1B4F93298B47CB006377E4 /* Store.swift in Sources */,
 			);
