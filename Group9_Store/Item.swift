@@ -37,6 +37,7 @@ class Item : IsPurchaseable{
             print("-------------------------------------")
             print("We are refunding the purchase of \(self.title)")
             print("Refund Amount: $\(self.price.printPrice())")
+            print()
         }
         else{
             //purchase
@@ -45,6 +46,7 @@ class Item : IsPurchaseable{
             print("-------------------------------------")
             print("Thank you for purchasing: \(self.title)")
             print("Purchase Amount: \(self.price.printPrice())")
+            print()
         }
     }
 }

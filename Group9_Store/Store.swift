@@ -39,6 +39,7 @@ class Store{
         //If Item not found return from this function
         if(item == nil){
             print("No Item with this id found")
+            print()
             return
         }
         
@@ -46,6 +47,7 @@ class Store{
         //customer already has this item in their itemsList
         if(isAlreadyPurchased(customer: customer, item: item!)){
             print("You have already purchased this item before. Please select a different Item")
+            print()
             return
         }
         
@@ -56,7 +58,7 @@ class Store{
          */
         if(checkIfEnoughBalance(customer:customer, item: item!)){
           
-            var newOwnedItem = OwnedItem(id: item!.id, title: item!.title, price: item!.price)
+            let newOwnedItem = OwnedItem(id: item!.id, title: item!.title, price: item!.price)
             
             customer.itemsList.append(newOwnedItem)
             
@@ -68,6 +70,7 @@ class Store{
             
         }else{
             print("Insufficiant funds in the Account")
+            print()
             return
         }
         
@@ -83,11 +86,13 @@ class Store{
         
         if(ownedItem == nil){
             print("Item with this ID not found in the customer's List. Please make sure the id is correct")
+            print()
             return
         }
         
         if(hasRunningTimeExceeded(ownedItem: ownedItem!)){
             print("Running time for \(ownedItem!.title) has exceeded 30 mins. Refund can't be issued.")
+            print()
             return
         }
         
@@ -112,7 +117,7 @@ class Store{
         
         for item in self.items{
          
-            if(item.title.contains(keyword)){
+            if(item.title.lowercased().contains(keyword.lowercased())){
                 
                 if let itemType = item as? Movie{
                     print("[MOVIE]  \(itemType.title), $\(itemType.price)")
@@ -180,7 +185,7 @@ class Store{
      */
     func ownedListHasItem(customer:Customer, itemId:Int)->OwnedItem?{
         
-        var ownedList = customer.itemsList
+        let ownedList = customer.itemsList
         
         for ownedItem in ownedList{
             
@@ -192,7 +197,7 @@ class Store{
     } //ownedListHasItem
     
     
-    func hasRunningTimeExceeded(ownedItem:OwnedItem)->Bool{
+    private func hasRunningTimeExceeded(ownedItem:OwnedItem)->Bool{
 
         return ownedItem.minutesUsed > 30
     }
