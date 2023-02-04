@@ -26,6 +26,7 @@ class Store{
     
     init(items: [Item]) {
         self.items = items
+        print("New Store created!")
     }
     
     func buyItem(customer: Customer, id: Int){
@@ -120,13 +121,11 @@ class Store{
             if(item.title.lowercased().contains(keyword.lowercased())){
                 
                 if let itemType = item as? Movie{
-                    print("[MOVIE]  \(itemType.title), $\(itemType.price)")
+                    print("[MOVIE] \(itemType.info)")
                     return
                 }
                 if let itemType = item as? Game{
-                    print("[GAME] \(itemType.title), $\(itemType.price)")
-                    print("Publisher: \(itemType.publisher)")
-                    print("Has Multiplayer: \(itemType.isMultiplayer.printMultiplayer(game: itemType))")
+                    print("[GAME] \(itemType.info)")
                     return
                 }
                 

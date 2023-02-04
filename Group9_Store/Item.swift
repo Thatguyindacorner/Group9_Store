@@ -27,6 +27,12 @@ class Item : IsPurchaseable{
         self.title = title
         self.price = price
         self.info = "\(title), $\(price)"
+        print("""
+
+Item created with id: \(self.id)
+\(self.info)
+
+""")
     }
     
     func printReceipt(isRefund: Bool, amount: Double) {

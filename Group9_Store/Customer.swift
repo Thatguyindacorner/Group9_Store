@@ -9,7 +9,17 @@ import Foundation
 
 class Customer{
     var itemsList: [OwnedItem] = []
-    var balance: Double = 10.00
+    var balance: Double
+    
+    init(){
+        self.balance = 10.00
+        print("New Customer created with balance: \(self.balance)")
+    }
+    
+    init(balance: Double) {
+        self.balance = balance
+        print("New Customer created with balance: \(self.balance)")
+    }
     
     func reloadAccount(amount: Double){
         //needs to be positive

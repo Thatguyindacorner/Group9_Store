@@ -8,7 +8,5 @@
 import Foundation
 
 class OwnedItem: Item {
-    
-    
     var minutesUsed: Int = 0
 }
