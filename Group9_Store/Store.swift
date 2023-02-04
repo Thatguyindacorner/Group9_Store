@@ -7,6 +7,18 @@
 
 import Foundation
 
+extension Bool{
+    
+    func printMultiplayer(game:Game)->String{
+        if(game.isMultiplayer){
+            return "Yes"
+        }else{
+            return "No"
+        }
+    }
+    
+}
+
 class Store{
     //i think items should be static cause we dont want to initlaize a store
     //but we are gonna follow assignment
@@ -48,6 +60,8 @@ class Store{
             
             customer.itemsList.append(newOwnedItem)
             
+            customer.balance -= newOwnedItem.price
+            
             print("Purchase Successful!")
             
             item!.printReceipt(isRefund: false, amount: item!.price)
@@ -72,13 +86,49 @@ class Store{
             return
         }
         
+        if(hasRunningTimeExceeded(ownedItem: ownedItem!)){
+            print("Running time for \(ownedItem!.title) has exceeded 30 mins. Refund can't be issued.")
+            return
+        }
+        
+        /*
+          If all goes well, initiate the refund
+         */
+        customer.balance += ownedItem!.price
+                
+        if let index = customer.itemsList.firstIndex(where: {
+            $0.id == ownedItem?.id
+        }){
+            let removedItem = customer.itemsList.remove(at: index)
+            removedItem.printReceipt(isRefund: true, amount: removedItem.price)
+        }
         
         
-        
-    }
+    } //issueRefund
+    
     
     func findByTitle(keyword: String){
         //conditions
+        
+        for item in self.items{
+         
+            if(item.title.contains(keyword)){
+                
+                if let itemType = item as? Movie{
+                    print("[MOVIE]  \(itemType.title), $\(itemType.price)")
+                    return
+                }
+                if let itemType = item as? Game{
+                    print("[GAME] \(itemType.title), $\(itemType.price)")
+                    print("Publisher: \(itemType.publisher)")
+                    print("Has Multiplayer: \(itemType.isMultiplayer.printMultiplayer(game: itemType))")
+                    return
+                }
+                
+            }
+            
+        }
+        print("Title with \(keyword) not found. Please search for another item")
     }
     
     
@@ -142,11 +192,38 @@ class Store{
     } //ownedListHasItem
     
     
-//    func hasRunningTimeExceeded(item:Item)->Bool{
-//        
-//        
-//        
-//    }
+    func hasRunningTimeExceeded(ownedItem:OwnedItem)->Bool{
+
+        return ownedItem.minutesUsed > 30
+    }
     
     
 }
+
+/*
+   Test Code- Working
+ //        if let idx = customer.itemsList.firstIndex(of: ownedItem!){
+ //
+ //            customer.itemsList.remove(at: idx)
+ //
+ //            ownedItem?.printReceipt(isRefund: true, amount: ownedItem!.price)
+ //        }
+ 
+ extension Array where Element:Equatable{
+     
+     
+     mutating func remove(element:Element){
+         
+         guard let idx = self.firstIndex(of: element) else{
+             return
+         }
+         
+         remove(at: idx)
+         
+     }
+     
+     
+ }
+
+ 
+ */
