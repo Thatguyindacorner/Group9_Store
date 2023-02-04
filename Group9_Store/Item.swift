@@ -42,7 +42,7 @@ Item created with id: \(self.id)
             print("YOUR RECEIPT")
             print("-------------------------------------")
             print("We are refunding the purchase of \(self.title)")
-            print("Refund Amount: $\(self.price.printPrice())")
+            print("Refund Amount: \(self.price.printPrice())")
             print()
         }
         else{
