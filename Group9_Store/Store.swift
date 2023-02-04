@@ -15,6 +15,7 @@ class Store{
     
     init(items: [Item]) {
         self.items = items
+        print("New Store created!")
     }
     
     func buyItem(customer: Customer, id: Int){
@@ -124,13 +125,22 @@ class Store{
             for item in titleArray{
                 
                 if let itemType = item as? Movie{
+
                     print("[MOVIE]  \(itemType.info)")
                     print()
+
+                    print("[MOVIE] \(itemType.info)")
+                    return
+
                 }
                 
                 if let itemType = item as? Game{
                     print("[GAME] \(itemType.info)")
+
                     print()
+
+                    return
+
                 }
                 
             }
@@ -187,7 +197,7 @@ class Store{
     /*
        Helper methods for issueRefund() method
      */
-    func ownedListHasItem(customer:Customer, itemId:Int)->OwnedItem?{
+    private func ownedListHasItem(customer:Customer, itemId:Int)->OwnedItem?{
         
         let ownedList = customer.itemsList
         
