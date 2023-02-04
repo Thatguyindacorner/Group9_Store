@@ -8,3 +8,7 @@
 import Foundation
 
 //You can do testing here
+
+func ameyaCode(){
+    //do code in here
+}
