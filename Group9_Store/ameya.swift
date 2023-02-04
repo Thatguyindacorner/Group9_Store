@@ -11,10 +11,15 @@ extension Customer{
     
     func iterateList(){
         
+        print("-----Customer's Owned Items-----------------")
         for item in self.itemsList{
             print("title: \(item.title), Price: \(item.price)")
         }
         print()
+    }
+    
+    var balanceInfo:String{
+        return "Remaining Balance is \(self.balance.printPrice())"
     }
     
 }
@@ -55,5 +60,21 @@ func ameyaCode(){
     store.issueRefund(customer: peter, itemId: 6)
     
     store.findByTitle(keyword: "last")
+    
+    store.items.append(Game(id: 8, title: "Cyberpunk 2077", price: 24.00, publisher: "CDProject Red", isMultiplayer: false))
+    
+    store.items.append(Game(id: 9, title: "The Last of Us 2", price: 32.50, publisher: "Sony", isMultiplayer: false))
+    
+    store.findByTitle(keyword: "last")
+    
+    store.buyItem(customer: peter, id: 8)
+    
+    store.buyItem(customer: peter, id: 9)
+    
+    peter.iterateList()
+    
+    print(peter.balanceInfo)
+    
+    print()
     
 }

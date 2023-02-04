@@ -7,17 +7,6 @@
 
 import Foundation
 
-extension Bool{
-    
-    func printMultiplayer(game:Game)->String{
-        if(game.isMultiplayer){
-            return "Yes"
-        }else{
-            return "No"
-        }
-    }
-    
-}
 
 class Store{
     //i think items should be static cause we dont want to initlaize a store
@@ -115,25 +104,40 @@ class Store{
     func findByTitle(keyword: String){
         //conditions
         
+        var titleArray:[Item] = []
+        
         for item in self.items{
          
             if(item.title.lowercased().contains(keyword.lowercased())){
                 
+                titleArray.append(item)
+                
+            }
+        }
+        
+        if(titleArray.isEmpty){
+            print("Title with \(keyword) not found. Please search for another item")
+            print()
+        }else{
+            
+            print("------Items Found in Store----------------")
+            for item in titleArray{
+                
                 if let itemType = item as? Movie{
-                    print("[MOVIE]  \(itemType.title), $\(itemType.price)")
-                    return
+                    print("[MOVIE]  \(itemType.info)")
+                    print()
                 }
+                
                 if let itemType = item as? Game{
-                    print("[GAME] \(itemType.title), $\(itemType.price)")
-                    print("Publisher: \(itemType.publisher)")
-                    print("Has Multiplayer: \(itemType.isMultiplayer.printMultiplayer(game: itemType))")
-                    return
+                    print("[GAME] \(itemType.info)")
+                    print()
                 }
                 
             }
             
         }
-        print("Title with \(keyword) not found. Please search for another item")
+        
+        //print("Title with \(keyword) not found. Please search for another item")
     }
     
     
@@ -229,6 +233,21 @@ class Store{
      
      
  }
+ 
+ 
+ Search/Print
+ //                if let itemType = item as? Movie{
+ //                    print("[MOVIE]  \(itemType.title), $\(itemType.price)")
+ //                    titleArray.append(itemType)
+ //                    //return
+ //                }
+ //                if let itemType = item as? Game{
+ //                    print("[GAME] \(itemType.title), $\(itemType.price)")
+ //                    print("Publisher: \(itemType.publisher)")
+ //                    print("Has Multiplayer: \(itemType.isMultiplayer.printMultiplayer(game: itemType))")
+ //                    titleArray.append(itemType)
+ //                    //return
+ //                }
 
  
  */
