@@ -40,15 +40,19 @@ let game2 = Game(id: 5, title: "The Binding of Issac", price: 14.99, publisher: 
 """)
     let game2 = Game(id: 5, title: "The Binding of Issac", price: 14.99, publisher: "Nicalis", isMultiplayer: false)
     print("""
-let game3 = Game(id: 6, title: "The Last Of Us", price: 14.99, publisher: "Sony", isMultiplayer: true)
+let game3 = Game(id: 5, title: "The Last Of Us", price: 14.99, publisher: "Sony", isMultiplayer: true)
 """)
-    let game3 = Game(id: 6, title: "The Last Of Us", price: 14.99, publisher: "Sony", isMultiplayer: true)
+    let game3 = Game(id: 5, title: "The Last Of Us", price: 14.99, publisher: "Sony", isMultiplayer: true)
+    print("""
+let game4 = Game(id: 6, title: "The Last Of Us", price: 14.99, publisher: "Sony", isMultiplayer: true)
+""")
+    let game4 = Game(id: 6, title: "The Last Of Us", price: 14.99, publisher: "Sony", isMultiplayer: true)
     print("--------------------------------2--------------------------------\n")
     
     //3 Creating a store and adding the movies and games to the store
     print("--------------------------------3--------------------------------")
-    print("let store = Store(items: [movie1, movie2, movie3, game1, game2, game3])")
-    let store = Store(items: [movie1, movie2, movie3, game1, game2, game3])
+    print("let store = Store(items: [movie1, movie2, movie3, game1, game2, game3, game4])")
+    let store = Store(items: [movie1, movie2, movie3, game1, game2, game3, game4])
     print("--------------------------------3--------------------------------\n")
     
     //4 Searching for an item that exists
