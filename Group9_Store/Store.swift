@@ -11,10 +11,16 @@ import Foundation
 class Store{
     //i think items should be static cause we dont want to initlaize a store
     //but we are gonna follow assignment
-    var items: [Item]
+    var items: [Item] = []
     
-    init(items: [Item]) {
-        self.items = items
+    init(items: [Item?]) {
+
+        //code to disregard nil Items from store
+        items.forEach { (item: Item?) in
+            if item != nil{
+                self.items.append(item!)
+            }
+        }
         print("New Store created!")
     }
     
@@ -48,7 +54,7 @@ class Store{
          */
         if(checkIfEnoughBalance(customer:customer, item: item!)){
           
-            let newOwnedItem = OwnedItem(id: item!.id, title: item!.title, price: item!.price)
+            let newOwnedItem = OwnedItem(id: item!.id, title: item!.title, price: item!.price)!
             
             customer.itemsList.append(newOwnedItem)
             
