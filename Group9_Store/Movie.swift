@@ -12,6 +12,15 @@ class Movie: Item {
     
     init?(id: Int, title: String, price: Double, runningTime: Int) {
         
+        if runningTime <= 0{
+            print("""
+
+            runningTime cannot be less than or equal to 0. \(Self.self) not created!
+
+            """)
+            return nil
+        }
+        
         self.runningTime = runningTime
         super.init(id: id, title: title, price: price)
         self.info = super.info + "\nRunning Time: \(runningTime) min"

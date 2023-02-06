@@ -7,25 +7,6 @@
 
 import Foundation
 
-extension Customer{
-    
-    func iterateList(){
-        
-        print("-----Customer's Owned Items-----------------")
-        for item in self.itemsList{
-            print("title: \(item.title), Price: \(item.price)")
-        }
-        print()
-    }
-    
-    var balanceInfo:String{
-        return "Remaining Balance is \(self.balance.printPrice())"
-    }
-    
-}
-
-//You can do testing here
-
 func ameyaCode(){
     //do code in here
 
@@ -43,21 +24,21 @@ func ameyaCode(){
 
     peter.reloadAccount(amount: 50.0)
 
-    store.buyItem(customer: peter, id: 1)
+    store.buyItem(c: peter, itemId: 1)
 
-    store.buyItem(customer: peter, id: 7)
+    store.buyItem(c: peter, itemId: 7)
 
-    store.buyItem(customer: peter, id: 6)
+    store.buyItem(c: peter, itemId: 6)
 
     peter.useItem(id: 1, numMinutes: 20)
 
-    store.issueRefund(customer: peter, itemId: 1)
+    store.issueRefund(c: peter, itemId: 1)
 
     peter.iterateList()
 
     peter.useItem(id: 6, numMinutes: 40)
 
-    store.issueRefund(customer: peter, itemId: 6)
+    store.issueRefund(c: peter, itemId: 6)
 
     store.findByTitle(keyword: "last")
 
@@ -67,13 +48,13 @@ func ameyaCode(){
 
     store.findByTitle(keyword: "last")
 
-    store.buyItem(customer: peter, id: 8)
+    store.buyItem(c: peter, itemId: 8)
 
-    store.buyItem(customer: peter, id: 9)
+    store.buyItem(c: peter, itemId: 9)
 
     peter.iterateList()
 
-    print(peter.balanceInfo)
+    peter.balanceInfo()
 
     print()
 

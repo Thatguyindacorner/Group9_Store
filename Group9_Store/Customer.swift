@@ -10,6 +10,7 @@ import Foundation
 class Customer{
     var itemsList: [OwnedItem] = []
     var balance: Double
+        
     
     init(){
         self.balance = 10.00
@@ -25,7 +26,7 @@ class Customer{
         //needs to be positive
         if amount > 0{
             self.balance += amount
-            print("Gift Card Balance updated by \(amount). New Balance: \(self.balance.printPrice())")
+            print("Gift Card Balance updated by \(amount.printPrice()). New Balance: \(self.balance.printPrice())")
         }
         else{
             print("Not a valid amount")
@@ -49,5 +50,4 @@ class Customer{
         }
         
     }
-
 }

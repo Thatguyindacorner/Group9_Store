@@ -7,15 +7,11 @@
 
 import Foundation
 
-
-
 class Store{
-    //i think items should be static cause we dont want to initlaize a store
-    //but we are gonna follow assignment
+
     var items: [Item] = []
     
     init(items: [Item?]) {
-
         //code to disregard nil Items from store
         items.forEach { (item: Item?) in
             if item != nil{
@@ -25,26 +21,26 @@ class Store{
         print("New Store created!")
     }
     
-    func buyItem(customer: Customer, id: Int){
+    func buyItem(c: Customer, itemId: Int){
         //conditions
         
         let item:Item?
         
         //Search this item from the store
-        item = storeHasItem(id: id)
+        item = storeHasItem(id: itemId)
         
         //If Item not found return from this function
         if(item == nil){
             print("No Item with this id found")
-            print()
+            //print()
             return
         }
         
         //If yes, check if the customer already has this item purchased, return from this function if the
         //customer already has this item in their itemsList
-        if(isAlreadyPurchased(customer: customer, item: item!)){
-            print("You have already purchased this item before. Please select a different Item")
-            print()
+        if(isAlreadyPurchased(customer: c, item: item!)){
+            print("You have already purchased \(item!.title). Please select a different Item")
+            //print()
             return
         }
         
@@ -53,13 +49,13 @@ class Store{
            If the customer has sufficiant balance, let them buy the item, else
            display error and return from this function
          */
-        if(checkIfEnoughBalance(customer:customer, item: item!)){
+        if(checkIfEnoughBalance(customer:c, item: item!)){
           
-            customer.balance -= item!.price
+            c.balance -= item!.price
             
             let newOwnedItem = OwnedItem(id: item!.id, title: item!.title, price: item!.price)!
             
-            customer.itemsList.append(newOwnedItem)
+            c.itemsList.append(newOwnedItem)
             
             print("Purchase Success!")
             
@@ -67,41 +63,41 @@ class Store{
             
         }else{
             print("Insufficiant funds in the Account")
-            print()
+            //print()
             return
         }
         
         
     } //buyItem
     
-    func issueRefund(customer: Customer, itemId: Int){
+    func issueRefund(c: Customer, itemId: Int){
         //conditions
         
         let ownedItem:OwnedItem?
         
-        ownedItem = ownedListHasItem(customer: customer, itemId: itemId)
+        ownedItem = ownedListHasItem(customer: c, itemId: itemId)
         
         if(ownedItem == nil){
-            print("Item with this ID not found in the customer's List. Please make sure the id is correct")
-            print()
+            print("Item with this id is not found. You do not own this Item!")
+            //print()
             return
         }
         
         if(hasRunningTimeExceeded(ownedItem: ownedItem!)){
-            print("Running time for \(ownedItem!.title) has exceeded 30 mins. Refund can't be issued.")
-            print()
+            print("Running time for \(ownedItem!.title) has exceeded 30 mins. Refund can't be issued!")
+            //print()
             return
         }
         
         /*
           If all goes well, initiate the refund
          */
-        customer.balance += ownedItem!.price
+        c.balance += ownedItem!.price
                 
-        if let index = customer.itemsList.firstIndex(where: {
+        if let index = c.itemsList.firstIndex(where: {
             $0.id == ownedItem?.id
         }){
-            let removedItem = customer.itemsList.remove(at: index)
+            let removedItem = c.itemsList.remove(at: index)
             removedItem.printReceipt(isRefund: true, amount: removedItem.price)
         }
         
@@ -125,28 +121,31 @@ class Store{
         
         if(titleArray.isEmpty){
             //print("Title with \(keyword) not found. Please search for another item")
-            print("Sorry, no matching games found")
-            print()
+            print("Sorry, no matching items found")
+            //print()
         }else{
-            
-            print("------Items Found in Store----------------")
+            //print("------Items Found in Store----------------")
             for item in titleArray{
-                
+                                
                 if let itemType = item as? Movie{
+                    //should add id #\(item.id) to output
+                    print("""
 
-                    print("[MOVIE]  \(itemType.info)")
-                    print()
-                    return
+                    [MOVIE] \(itemType.info)
+
+                    """)
+                    //return //this doesn't let multiple outputs display (return breaks loop on first discovery)
 
                 }
                 
                 if let itemType = item as? Game{
-                    print("[GAME] \(itemType.info)")
+                    //should add id #\(item.id) to output
+                    print("""
 
-                    print()
+                    [GAME] \(itemType.info)
 
-                    return
-
+                    """)
+                    //return //this doesn't let multiple outputs display (return breaks loop on first discovery)
                 }
                 
             }
@@ -174,7 +173,7 @@ class Store{
             
             if(item.id == id){
                 
-                print("Item found!")
+                //print("Item found!")
                 
                 return item
             }
