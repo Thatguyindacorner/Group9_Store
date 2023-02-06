@@ -177,4 +177,6 @@ func alexCode()
     alex.iterateList()
     alex.balanceInfo()
 
+//    print()
+//    print(game5?.info ?? "")
 }

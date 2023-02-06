@@ -14,7 +14,10 @@ class Item : IsPurchaseable{
     var title: String
     var price: Double
     
-    var info: String
+    var info: String{
+        
+        return "\(title), \(price.printPrice())"
+    }
     
     init?(id: Int, title: String, price: Double) {
         
@@ -53,7 +56,7 @@ class Item : IsPurchaseable{
         }
         self.title = title
         self.price = price
-        self.info = "\(title), \(price.printPrice())"
+        //self.info = "\(title), \(price.printPrice())"
         print("""
 
         \(Self.self) created with id: \(self.id)

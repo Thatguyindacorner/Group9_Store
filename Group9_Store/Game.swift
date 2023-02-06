@@ -11,6 +11,10 @@ class Game: Item {
     var publisher: String
     var isMultiplayer : Bool
     
+    override var info: String{
+        return super.info + "\nPublisher: \(publisher)\nIs Multiplayer: \(isMultiplayer)"
+    }
+    
     init?(id: Int, title: String, price: Double, publisher: String, isMultiplayer: Bool) {
         
         if (publisher.isEmpty){
@@ -25,7 +29,7 @@ class Game: Item {
         self.publisher = publisher
         self.isMultiplayer = isMultiplayer
         super.init(id: id, title: title, price: price)
-        self.info = super.info + "\nPublisher: \(publisher)\nIs Multiplayer: \(isMultiplayer)"
+        //self.info = super.info + "\nPublisher: \(publisher)\nIs Multiplayer: \(isMultiplayer)"
         
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 protocol IsPurchaseable {
-    var info: String {get set}
+    //var info: String {get set}
+    var info: String {get}
     func printReceipt(isRefund: Bool, amount: Double)
 }

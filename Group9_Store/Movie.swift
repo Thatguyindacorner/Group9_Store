@@ -10,6 +10,10 @@ import Foundation
 class Movie: Item {
     var runningTime: Int
     
+    override var info: String{
+        return super.info + "\nRunning Time: \(runningTime) mins"
+    }
+    
     init?(id: Int, title: String, price: Double, runningTime: Int) {
         
         if runningTime <= 0{
@@ -23,6 +27,6 @@ class Movie: Item {
         
         self.runningTime = runningTime
         super.init(id: id, title: title, price: price)
-        self.info = super.info + "\nRunning Time: \(runningTime) min"
+        //self.info = super.info + "\nRunning Time: \(runningTime) min"
     }
 }
