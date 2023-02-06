@@ -10,10 +10,14 @@ import Foundation
 extension Double{
     
     func printPrice()->String{
-        return "$\(self)"
+        
+        //return "$\(self)"
+        return "$\(String(format: "%.2f", self))"
     }
     
 }
+
+
 
 
 
@@ -28,6 +32,25 @@ class Item : IsPurchaseable{
     
     init?(id: Int, title: String, price: Double) {
         //allows items to be bought (owned items have the same id as store items)
+        
+        if(price <= 0){
+            print("""
+
+             Price found to be less than 0. \(Self.self) not created!
+
+""")
+            return nil
+        }
+        
+        if(title.isEmpty){
+            print("""
+
+Title cannot be empty. \(Self.self) not created!
+
+""")
+            return nil
+        }
+        
         if !Item.idList.contains(id) || (Self.self == OwnedItem.self){
             self.id = id
             //doesn't add id of copy to list (saves memory)
@@ -36,7 +59,7 @@ class Item : IsPurchaseable{
             }
             self.title = title
             self.price = price
-            self.info = "\(title), $\(price)"
+            self.info = "\(title), \(price.printPrice())"
             print("""
 
     \(Self.self) created with id: \(self.id)

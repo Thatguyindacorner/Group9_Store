@@ -13,18 +13,19 @@ class Customer{
     
     init(){
         self.balance = 10.00
-        print("New Customer created with balance: \(self.balance)")
+        print("New Customer created with balance: \(self.balance.printPrice())")
     }
     
     init(balance: Double) {
         self.balance = balance
-        print("New Customer created with balance: \(self.balance)")
+        print("New Customer created with balance: \(self.balance.printPrice())")
     }
     
     func reloadAccount(amount: Double){
         //needs to be positive
         if amount > 0{
             self.balance += amount
+            print("Gift Card Balance updated by \(amount). New Balance: \(self.balance.printPrice())")
         }
         else{
             print("Not a valid amount")
@@ -38,7 +39,7 @@ class Customer{
             for item in itemsList {
                 if item.id == id{
                     item.minutesUsed += numMinutes
-                    print("Search Success")
+                    print("Used \(item.title) for \(numMinutes) mins")
                     break
                 }
             }

@@ -121,4 +121,7 @@ store.findByTitle(keyword: "gta")
     
     print(alex.itemsList)
     print(alex.balance)
+
+    //store.items.append(Movie(id: 7, title: "Test movie", price: 20.0, runningTime: 70)!)
+    
 }

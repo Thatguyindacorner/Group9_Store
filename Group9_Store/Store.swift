@@ -8,6 +8,7 @@
 import Foundation
 
 
+
 class Store{
     //i think items should be static cause we dont want to initlaize a store
     //but we are gonna follow assignment
@@ -54,13 +55,13 @@ class Store{
          */
         if(checkIfEnoughBalance(customer:customer, item: item!)){
           
+            customer.balance -= item!.price
+            
             let newOwnedItem = OwnedItem(id: item!.id, title: item!.title, price: item!.price)!
             
             customer.itemsList.append(newOwnedItem)
             
-            customer.balance -= newOwnedItem.price
-            
-            print("Purchase Successful!")
+            print("Purchase Success!")
             
             item!.printReceipt(isRefund: false, amount: item!.price)
             
@@ -123,7 +124,8 @@ class Store{
         }
         
         if(titleArray.isEmpty){
-            print("Title with \(keyword) not found. Please search for another item")
+            //print("Title with \(keyword) not found. Please search for another item")
+            print("Sorry, no matching games found")
             print()
         }else{
             
@@ -134,8 +136,6 @@ class Store{
 
                     print("[MOVIE]  \(itemType.info)")
                     print()
-
-                    print("[MOVIE] \(itemType.info)")
                     return
 
                 }
