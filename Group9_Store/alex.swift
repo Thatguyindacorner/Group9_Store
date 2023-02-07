@@ -121,7 +121,7 @@ func alexCode()
     
     //7 Reloading the customer’s gift card so they have sufficient funds
     print("--------------------------------7--------------------------------")
-    print("7 Reloading the customer’s gift card so they have sufficient funds\n")
+    print("//Reloading the customer’s gift card so they have sufficient funds\n")
     print("alex.reloadAccount(amount: -60.0)")
     alex.reloadAccount(amount: -60.0)
     print("alex.reloadAccount(amount: 60.0)")
@@ -160,7 +160,7 @@ func alexCode()
     
     //12 Trying to refund an item that does NOT the refund policy requirements
     print("--------------------------------12--------------------------------")
-    print("//Trying to refund an item that does NOT the refund policy requirements\n")
+    print("//Trying to refund an item that does NOT meet the refund policy requirements\n")
     print("store.issueRefund(c: alex, itemId: 3)")
     store.issueRefund(c: alex, itemId: 3)
     print("store.issueRefund(c: alex, itemId: 1)")
